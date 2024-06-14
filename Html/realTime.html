@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Dati in tempo reale</title>
+    <script src="realTime.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="inizializzaPagina()">
+    <div class="container">
+        <h1>DATI IN TEMPO REALE DAL DISPOSITIVO</h1><br>
+      
+    
+        <div class="grid-container">
+            <div class="table-container">
+                <div style="height: 30px;"></div>
+                <tr><td colspan='2'>Caricamento...</td>
+            </div>  
+
+            <div class="sidebar disabled-block">
+                <p>
+                    In questa tabella sono riportati tutti i dati del dispositivo selezionato.
+                    In questo caso usiamo un OPC-N3, un dispositivo in gradop di campionare
+                    le particelle dell'aria e dal quale otteniamo i valori: Temperatura, PM_1, PM_pm2_5, PM_10 e Umidità
+                    se si volesse vedere tutti i dati delle misurazioni basterà cliccare sull'apposito pulsante.
+                </p>
+
+                <div class="container">
+                    <button id="bottoneAperturaDati" onclick="goToDatiPage()">Visualizza tutti i dati</button>
+                </div>
+
+
+                <div id="deviceFns" class="">
+                    <h2>Parametri dispositivo</h2>
+                    <div class="title_box" style="margin-bottom: 10px;">
+                        <span style="margin-right: 8px;">Coordinate: </span>
+                        <input type="number" id="lat" placeholder="Valore" readonly="true">
+                        <span style="margin: 5px;"></span>
+                        <input type="number" id="long" placeholder="Valore"  readonly="true">
+                    </div>
+                    <button id="mappa" onclick ="apriMappa()" style="margin-bottom: 10px;">
+                        <img src="images/mapp.png" alt="csv_file_icon">
+                        Apri Mappa
+                    </button>
+                    <div class="title_box" style="margin-bottom: 10px;">
+                        <span style="margin-right: 8px;">Applica correzione PM: </span>
+                        <input type="number" id="corrVal" placeholder="Valore">
+                        <span style="margin-left: 5px;">%</span>
+                    </div>
+
+                    <div class="title_box" style="margin-bottom: 10px;">
+                        <span style="margin-right: 8px;">Ogni: </span>
+                        <input type="number" id="corrInt" placeholder="Valore">
+                        <span style="margin-left: 5px;">% di umidità</span>
+                    </div>
+
+                    <div class="title_box" style="margin-bottom: 10px;">
+                        <span style="margin-right: 8px;">A partire dal: </span>
+                        <input type="number" id="corrMin" placeholder="Valore">
+                        <span style="margin-left: 5px;">% di umidità</span>
+                    </div>
+
+                    <div class="title_box" style="margin-bottom: 10px;">
+                        <span style="margin-right: 8px;">Intervallo lettura: </span>
+                        <input type="number" id="readTime" placeholder="Valore">
+                        <span style="margin-left: 5px;">secondi</span>
+                    </div>
+                    
+                    <div class="container" style="margin-bottom: 20px;">
+                        <button id="applyParams" onclick="applyChanges()">
+                            <img src="images/apply_icon.png" alt="csv_file_icon">
+                            Applica modifiche
+                        </button>
+
+                        <button id="applyParams_disabled" class="disabled">
+                            <div class="loader" style="margin-right: 10px;"></div> 
+                            Sincronizzazione...
+                        </button>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="container" style="margin-top: 20px;">
+                        <button id="shutDown" onclick="shutDown()">
+                            <img src="images/power_icon.png" alt="csv_file_icon">
+                            Spegni
+                        </button>
+                    </div>
+
+                    <div class="container" style="margin-top: 0px;">
+                        <button id="reboot" onclick="reboot()">
+                            <img src="images/restart_icon.png" alt="csv_file_icon">
+                            Riavvia
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                
+        </div>
+    <div>
+    
+    <div class="notification">
+        <img src="images/completed_icon.png" alt="csv_file_icon">
+        <span>Completato!</span>
+    </div>
+
+</body>
+</html>

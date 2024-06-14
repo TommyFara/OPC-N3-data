@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Includi jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Includi DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    <!-- Includi DataTables JavaScript -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dati del dispositivo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="dati.js"></script>
+</head>
+<body onload="inizializzaPagina()">
+    <div class="container">
+        <div class="title_box">
+            <button id="indietro" onclick="goToDemoPage()">Indietro</button>
+            <h1>DATI RICEVUTI DAL SENSORE</h1>
+        </div>
+
+        <div class="title_box" style="margin-bottom: 25px;">
+            <input type="date" id="datepicker" name="datepicker" class="disabled">
+
+            <button id="download" onclick="downloadCSV()" class="disabled">
+                <img src="images/csv_icon.png" alt="csv_file_icon">
+                Scarica CSV
+            </button>
+        </div>
+
+        <div class="title_box" style="margin-bottom: 25px;">
+            <span id="timeElapsed"></span>
+        </div>
+        
+        <div id="divTable">
+            <tr><td colspan='2'>Caricamento...</td>
+            </table>
+        </div>
+    </div>
+
+    <button id="tornaSuBtn" onclick="tornaAllInizio()">
+        <img src="images/up_icon.png" alt="Torna all'inizio">
+    </button>
+    
+    
+</body>
+</html>

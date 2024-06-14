@@ -1,0 +1,358 @@
+body {
+    font-family: Arial, sans-serif;
+    /*display: flex;*/
+    justify-content: center;
+    /*align-items: center;*/
+    height: 100%;
+    margin: auto;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 200px; /* La tabella occupa la maggior parte dello spazio, la barra laterale 200px */
+    grid-gap: 20px; /* Spazio tra i due elementi */
+}
+
+.table-container {
+    flex: 1;
+    margin-right: 20px; /* Aggiunge uno spazio tra la tabella e il paragrafo */
+    display: flex;
+    flex-direction: column;
+    background: rgba(210, 245, 255, 0.97); /* Azzurro chiarissimo con un po' di trasparenza */
+    border: 7px solid black; /* Bordo nero leggermente più spesso */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 800px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: bold; /* Testo in grassetto */
+    color: #333;
+}
+
+.cell:not(:last-child) {
+    border-right: none;
+}
+
+.row:not(:last-child) .cell {
+    border-bottom: none;
+}
+
+.sidebar {
+    width: 300px; /* Larghezza della barra laterale */
+    height: max-content;  
+    margin-left: 20px; /* Spostamento verso destra */
+    display: flex;
+    flex-direction: column;
+    background: rgba(254, 254, 254, 0.8); /* Azzurro chiarissimo con un po' di trasparenza */
+    border: 4px solid black; /* Bordo nero leggermente più spesso */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0px 15px 15px 15px;
+    
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    background-color: #4CAF50; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuove il bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 16px; /* Dimensione del testo */
+    cursor: pointer; /* Cambia il cursore al passaggio sopra il bottone */
+    transition: background-color 0.3s; /* Transizione del colore di sfondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#indietro {
+    width: 101px;
+    margin-left: 10px;
+    position: absolute;
+    left: 0;
+}
+
+#download {
+    height: 50px;
+    width: 250px;
+}
+
+
+button:hover {
+    background-color: #45a049; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+button img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+h1{
+
+    color:#4CAF50;
+
+}
+
+.tab-h-div {
+    width: 12px;
+}
+
+
+.table-row-changeBg {
+    background-color: #dbd5d5;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+tr {
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.title_box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    background-color: #4CAF50; /* Colore di sfondo */
+}
+
+#datepicker {
+    margin-right: 20px;
+    width: 250px;
+    height: 50px;
+    color: white; /* Colore del testo */
+    border: none; /* Rimuove il bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 16px; /* Dimensione del testo */
+    transition: background-color 0.1s; /* Transizione del colore di sfondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-appearance: none; /* Rimuove lo stile predefinito per Safari */
+    -moz-appearance: none; /* Rimuove lo stile predefinito per Firefox */
+    appearance: none; /* Rimuove lo stile predefinito */
+}
+
+/* Stile per l'icona del calendario */
+#datepicker::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    background: none;
+    z-index: 1;
+    opacity: 1;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+
+/* Aggiungere un'icona di calendario personalizzata */
+#datepicker::-webkit-calendar-picker-indicator {
+    content: url('images/date_icon.png'); /* Sostituisci con il percorso della tua icona */
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+.disabled {
+    pointer-events: none;
+    background-color: #adadad;
+    cursor: default;
+}
+
+.disabled-block {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.7;
+}
+
+@keyframes newElement {
+    0% {
+      background-color: rgba(255, 255, 255, 1);
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+.newElement {
+    animation: newElement 1s forwards;
+}
+
+#tornaSuBtn {
+    display: none;
+    position: fixed; /* Posizionamento fisso rispetto al viewport */
+    bottom: 20px; /* Distanza dal fondo della pagina */
+    right: 20px; /* Distanza dal lato destro della pagina */
+    width: 60px; /* Larghezza del bottone */
+    height: 60px; /* Altezza del bottone */
+    border-radius: 50%; /* Rende il bottone rotondo */
+    background-color: #4CAF50; /* Colore di sfondo del bottone */
+    border: none; /* Nessun bordo */
+    cursor: pointer; /* Cambia il cursore quando si passa sopra il bottone */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Ombra per il bottone */
+    outline: none; /* Rimuove il contorno quando il bottone è in focus */
+    align-items: center;
+}
+
+#tornaSuBtn img {
+    width: 40px; /* Larghezza dell'immagine uguale a quella del bottone */
+    height: auto; /* Altezza automatica per mantenere le proporzioni dell'immagine */
+    margin: 0px;
+}
+
+input[type="number"] {
+    background-color: #dddddd; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuove il bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 16px; /* Dimensione del testo */
+    transition: background-color 0.3s; /* Transizione del colore di sfondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    padding-left: 10px;
+}
+
+#corrVal, #corrInt, #readTime, #corrMin, #lat, #long {
+    width: 80px;
+    height: 30px;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(154, 154, 154);
+}
+
+#deviceFns {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+#shutDown {
+    background-color: #b14141;
+}
+
+#reboot {
+    background-color: #4798ca;
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#ffffff 94%,#0000) top/5px 5px no-repeat,
+      conic-gradient(#0000 30%,#ffffff);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 5px),#000 0);
+    animation: l13 1s infinite linear;
+  }
+  @keyframes l13{ 
+    100%{transform: rotate(1turn)}
+  }
+
+#applyParams_disabled {
+    display: none;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -250px;
+    width: 200px;
+    height: 60px;
+    background-color: #ffffff; /* Colore di sfondo */
+    border: solid 3px #767676; /* Rimuove il bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 16px; /* Dimensione del testo */
+    transition: background-color 0.3s; /* Transizione del colore di sfondo */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 10px;
+    color: black;
+    border-radius: 15px;
+}
+
+.notification img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.notification span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@keyframes inAnim {
+    0% {
+      right: -250px
+    }
+    100% {
+        right: 20px
+    }
+}
+
+@keyframes outAnim {
+    0% {
+      right: 20px
+    }
+    100% {
+        right: -250px
+    }
+}
+
+.notification.inAnim {
+    animation: inAnim 0.3s forwards;
+}
+
+.notification.outAnim {
+    animation: outAnim 0.3s forwards;
+}
