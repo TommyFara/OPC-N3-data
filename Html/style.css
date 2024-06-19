@@ -98,7 +98,7 @@ button {
     left: 0;
 }
 
-#download {
+#download, #mappa {
     height: 50px;
     width: 250px;
 }

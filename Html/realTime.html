@@ -19,7 +19,7 @@
                 <tr><td colspan='2'>Caricamento...</td>
             </div>  
 
-            <div class="sidebar disabled-block">
+            <div class="sidebar">
                 <p>
                     In questa tabella sono riportati tutti i dati del dispositivo selezionato.
                     In questo caso usiamo un OPC-N3, un dispositivo in gradop di campionare
@@ -40,7 +40,7 @@
                         <span style="margin: 5px;"></span>
                         <input type="number" id="long" placeholder="Valore"  readonly="true">
                     </div>
-                    <button id="mappa" onclick ="apriMappa()" style="margin-bottom: 10px;">
+                    <button id="mappa" onclick ="goToMapPage()" style="margin-bottom: 10px;">
                         <img src="images/mapp.png" alt="csv_file_icon">
                         Apri Mappa
                     </button>
@@ -103,7 +103,7 @@
     <div>
     
     <div class="notification">
-        <img src="images/completed_icon.png" alt="csv_file_icon">
+        
         <span>Completato!</span>
     </div>
 

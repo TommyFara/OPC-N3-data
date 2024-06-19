@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Line Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+    <script src="grafico.js"></script>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+        }
+        #title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        #mainDiv {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 90%;
+            margin: auto;
+        }
+        #chartContainer {
+            flex: 3;
+            padding: 20px;
+        }
+        #datiFissi {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #datiFissi label {
+            margin-top: 10px;
+        }
+        #datiFissi input {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body onload="inizialize()">
+    <div id="title">Grafici PM</div>
+    <div id="mainDiv">
+        <div class="title_box">
+        </div>
+        <div id="chartContainer">
+            <canvas id="progressiveLineChart"></canvas>
+        </div>
+        <div id="datiFissi">
+        </div>
+    </div>
+</body>
+</html>

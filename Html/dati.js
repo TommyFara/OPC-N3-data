@@ -2,12 +2,21 @@ let smallList = [];
 let list = [];
 let fileName = "";
 let csvString = "";
+let dataUlr;    // data da passare all'url della mappa
 
 
 function inizializzaPagina() {
     var datepicker = document.getElementById('datepicker');
+    var mappa = document.getElementById('mappa');
     var today = new Date().toISOString().split('T')[0];
-    datepicker.value = today;
+    datepicker.value = today
+    var dataSelezionata = new Date(datepicker.value);
+    var anno = dataSelezionata.getFullYear();
+    var mese = ('0' + (dataSelezionata.getMonth() + 1)).slice(-2);
+    var giorno = ('0' + dataSelezionata.getDate()).slice(-2);
+    let data = '' + anno + mese + giorno;
+    dataUrl = data; 
+
     //run();
     createSocket("cur")
 
@@ -19,16 +28,13 @@ function inizializzaPagina() {
         let data = '' + anno + mese + giorno;
         console.log(data); // Mostra la data nel formato AAAAMMDD
         
+        dataUrl = data;
         createSocket(data);
         
         let table = document.getElementById("divTable");
         table.innerHTML = "<tr><td colspan='2'>Caricamento...</td>"
 
-        let datepicker = document.getElementById("datepicker");
-        datepicker.classList.add("disabled");
-
-        let download = document.getElementById("download");
-        download.classList.add("disabled");
+        
     });  
 }
 
@@ -103,6 +109,13 @@ function goToDemoPage(){
     location.href = "realTime.html";
 }
 
+function goToMapPage(){
+    location.href = "mappa.html?data=" + dataUrl;
+}
+
+function goToMapGraph(){
+    location.href = "grafico.html?data=" + dataUrl;
+}
 
 function downloadCSV() {
     // Creare un Blob con i dati CSV
@@ -211,6 +224,9 @@ function createSocket(data) {
 
             let download = document.getElementById("download");
             download.classList.remove("disabled");
+
+            let mappa = document.getElementById("mappa");
+            mappa.classList.remove("disabled");
         }
         
         //processWebSocketData(event.data);

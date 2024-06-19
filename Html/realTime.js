@@ -67,10 +67,10 @@ function initializeWebSocket() {
                 }
                 default: {
                     //il resto è il file
+                    let x = event.data;
                     list = listFromCSV(event.data);
-                    let lista = list[list.length-1].split;
-                    document.getElementById("lat").value = lista[lista.length-2];
-                    document.getElementById("long").value = lista[lista.length-1];
+                    document.getElementById("lat").value = list[list.length-2].Latitudine;
+                    document.getElementById("long").value = list[list.length-1].Longitudine;
                     createTable();
                 }
             }
@@ -105,7 +105,6 @@ function initializeWebSocket() {
 function goToDatiPage(){
     location.href = "dati.html";
 }
-
 
 function listFromCSV(csv) {
     console.log("inizio csv");
@@ -161,11 +160,6 @@ function createTable(){
     }
     console.log("fine table");
     document.getElementsByClassName("table-container")[0].innerHTML = table;
-}
-function apriMappa(){
-
-    window.location.href = "dati.html";
-    
 }
 
 function applyChanges() {
