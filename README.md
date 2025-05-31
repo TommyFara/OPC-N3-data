@@ -45,5 +45,4 @@ I sensori e gli altri componenti utilizzati per la stazione sono
 
 # To do
 
-lementare sia su python che sulla pagina web le funzionalità per avviare, fermare e riavviare i sensori (presente ma non funzionante)- riorganizzare completamente gli script in python e la gestione del codice
-- imp
+Implementare sia su python che sulla pagina web le funzionalità per avviare, fermare e riavviare i sensori (presente ma non funzionante)- riorganizzare completamente gli script in python e la gestione del codice
